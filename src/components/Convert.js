@@ -41,13 +41,18 @@ const Convert = ({ language, text }) => {
 		<div>
 			<h1 className="converted" style={{color: '#fafafa'}}>{translated}</h1> 
 
-		{/* <Speech 
-			text={translated}
-			pitch="0.1"
-			rate="0.1"
-			lang="en-GB"
-		/>
-		<p style={{fontWeight: 900, color: '#fafafa'}}>play</p> */}
+		{translated && 
+		<div>
+			<Speech 
+				text={translated}
+				pitch="0.1"
+				rate="0.1"
+				lang="en-GB"
+			/>
+			<p style={{fontWeight: 900, color: '#fafafa'}}>play</p>
+		</div>
+		}
+		
 		</div>
 	);	
 };

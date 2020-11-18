@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Dropdown from './Dropdown';
 import Convert from './Convert';
-import { Mic } from './Mic';
 
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
@@ -17,7 +16,7 @@ const options = [
 				label: 'English',
 				value: 'en'
 			}
-			 ];
+];
 
 const Translate = () => {
 	const [language, setLanguage] = useState(options[0]);
@@ -58,28 +57,71 @@ const Translate = () => {
 
 	return (
 			<div style={{textAlign: 'center'}}>
-				<div style={{width: '30vw', margin: '4em auto'}}>
+				<div style={{
+					width: '30vw', 
+					margin: '4em auto'
+				}}>
+
 					{
-						recording ? <div id="loader" className="ui active centered massive inline loader"></div>
+						recording ? 
+						<div 
+							id="loader" 
+							className="ui active centered massive inline loader"
+						></div>
 						:
 						<div>
-							<a href="#" onClick={(e) => onMicClick(e)}><i id="mic" className="ui icon large microphone" style={{color: '#fafafa'}}></i></a>
+							<a 
+								href="#" 
+								onClick={(e) => onMicClick(e)}>
+								<i 
+									id="mic" 
+									className="ui icon large microphone" 
+									style={{color: '#fafafa'}}>
+								</i>
+							</a>
 						</div>
 					}
-					{/* <a href="#" onClick={resetTranscript}><i class="undo black icon"></i></a> */}
 				</div>
 				
-				<div className="ui form" style={{margin: '2em auto', width: window.innerWidth < 400 ? '90vw' : '50vw'}}>
+				<div 
+					className="ui form" 
+					style={{
+						margin: '2em auto', 
+						width: window.innerWidth < 400 ? '90vw' : '50vw'
+				}}>
 					<div className="field">
-					<label className="label" style={{color: '#fafafa', textAlign: 'left'}}></label>
+						<label 
+							className="label" 
+							style={{
+								color: '#fafafa', 
+								textAlign: 'left'
+							}}>
+							
+						</label>
 						<div class="ui input">
-							<input placeholder="Click microphone to record or enter text here..." value={text} onChange={(e) => setText(e.target.value)} style={{border: 'none', borderBottom: '2.5px solid #fafafa', fontSize: '1.5em', backgroundColor: '#fafafa00'}}/>
+							<input 
+								placeholder="Click microphone to record or enter text here..." 
+								value={text} 
+								onChange={(e) => setText(e.target.value)} 
+								style={{
+									border: 'none', 
+									borderBottom: '2.5px solid #fafafa', 
+									fontSize: '1.5em', 
+									backgroundColor: '#fafafa00', 
+									borderRadius: 0}}
+							/>
 						</div>
 					</div>
 				</div>
-				{/* <Mic recording={recording} /> */}
-				<Dropdown selected={language} onSelectedChange={setLanguage} options={options}/>
-				<Convert text={text} language={language} />
+				<Dropdown 
+					selected={language} 
+					onSelectedChange={setLanguage} 
+					options={options}
+				/>
+				<Convert 
+					text={text} 
+					language={language} 
+				/>
 			</div>);
 };
 
